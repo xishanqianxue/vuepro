@@ -8,28 +8,24 @@
 </head>
 <body>
     <input type="text" id="username"><br> 
-    <input type="password" id="pwd"><br>
-    <input type="text" id="Verif"><span class="verif"></span><br>
-    <button id="btn">登录</button>
+    <input type="text" id="tel"><br>
+    <input type="text" id="email"><br>
+    <input type="file" id="text"><br>
+
+    <button id="btn" onclick="fn()">登录</button>
 
     <script>
+        var username = document.getElementById("username");
+        var tel = document.getElementById("tel");
+        var email = document.getElementById("email");
+        var img = document.getElementById("img");
+        var text = document.getElementById("text");
+
         var btn = document.getElementById("btn");
         // var verif = document.getElementById("verif");
-        axios.get("/verif")
-        .then((res)=>{
-            verif.innerHTML = res.data;
-        })
-        btn.onclick = function(){
-            var username = document.getElementById("username").value;
-            var pwd = document.getElementById("password").value;
-            var verif = document.getElementById("verif").value;
-            var formdata = new FormData();
-
-            formdata.append("username",username);
-            formdata.append("pwd",pwd);
-            formdata.append("verif",verif);
-            
-            axios.post()
+        
+        function fn(){
+            console.log(img.files[0]);
         }
     </script>
 </body>
