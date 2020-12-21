@@ -12,6 +12,10 @@ module.exports = appInfo => {
    **/
   const config = exports = {};
 
+  config.cors={
+    enable: true,
+    package: 'egg-cors',
+  }
   
   config.mysql={
     client:{
