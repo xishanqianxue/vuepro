@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Homepage from '../views/Homepage.vue'
+import Homepage from '@/views/Homepage.vue'
 
 Vue.use(VueRouter)
 
@@ -11,31 +11,31 @@ const routes = [
   },
   {
     path: '/Person',
-    component: () => import('../views/Person.vue')
+    component: () => import('@/views/Person.vue')
   },
   {
     path:'/Login',
-    components:()=>import('@/components/Login.vue')
+    components:()=>import('@/views/Login.vue')
   },
   {
     path:'/Chanpin',
-    components:()=>import('@/components/Chanpin.vue')
+    components:()=>import('@/views/Chanpin.vue')
   },
   {
     path:'/CpHomepage',
-    components:()=>import('@/components/CpHomepage.vue')
+    components:()=>import('@/views/CpHomepage.vue')
   },
   {
     path:'/Messager',
-    components:()=>import('@/components/Messager.vue')
+    components:()=>import('@/views/Messager.vue')
   },
   {
     path:'/Teacher',
-    components:()=>import('@/components/Teacher.vue')
+    components:()=>import('@/views/Teacher.vue')
   },
   {
     path:'/Student',
-    components:()=>import('@/components/Student.vue')
+    components:()=>import('@/views/Student.vue')
   }
 ]
 
