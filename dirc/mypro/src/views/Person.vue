@@ -1,5 +1,21 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="person">
+    <NavTop></NavTop>
+    <Main></Main>
   </div>
 </template>
+
+<script>
+import NavTop from '@/components/dxh/NavTop.vue'
+import Main from '@/components/dxh/Main.vue'
+  export default {
+    components:{
+      NavTop,
+      Main
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  
+</style>

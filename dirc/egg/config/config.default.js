@@ -12,10 +12,10 @@ module.exports = appInfo => {
    **/
   const config = exports = {};
 
-  config.cors={
-    enable: true,
-    package: 'egg-cors',
-  }
+  config.cors = {
+    origin: 'http://192.168.2.125:8080',
+    credentials: true
+}
   
   config.mysql={
     client:{
@@ -31,6 +31,12 @@ module.exports = appInfo => {
       database:"vuepro"   
     }
   }
+  config.session = {
+    key: 'PersonInfo',
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true,
+  };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1605843912979_5050';
 

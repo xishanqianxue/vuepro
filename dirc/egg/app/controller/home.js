@@ -5,10 +5,15 @@ const svgCaptcha = require("svg-captcha");
 class HomeController extends Controller {
   async UserChange() {
     const ctx = this.ctx
-    console.log(ctx.request.files[0]);
+    console.log(ctx.request.files[0],111);
+    console.log(ctx.request.body,222);
     await this.service.home.UserChange(ctx.request.body,ctx.request.files)
-    this.session.UserInfo = {username:ctx.request.body.username,tel:ctx.request.body.tel,email:ctx.request.body.email,text:ctx.request.body.text};
+    this.ctx.session.UserInfo = {username:ctx.request.body.username,tel:ctx.request.body.tel,email:ctx.request.body.email,text:ctx.request.body.text};
     ctx.body = {code:2001}
+  }
+  async userinfo(){
+    var userinfo = this.ctx.session.UserInfo
+    this.ctx.body={userinfo: userinfo}
   }
   async verif() {
     const ctx = this.ctx

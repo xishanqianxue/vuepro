@@ -1,8 +1,8 @@
 const Service = require('egg').Service;
 let fs = require("fs");
 class MyService extends Service {
-  async UserChange(reg){
-    var data = `update user set tel="${reg.tel}",email="${reg.email}",text="${reg.text}",img="${reg.img}" where username="${reg.username}"`
+  async UserChange(reg1,reg2){
+    var data = `update user set tel="${reg1.tel}",email="${reg1.email}",text="${reg1.text}" where username="${reg1.username}"`
     await this.app.mysql.query(data);
   }
   async has(reg){

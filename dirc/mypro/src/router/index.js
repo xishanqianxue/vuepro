@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name:'Homepage',
     component: Homepage
   },
   {
@@ -44,5 +45,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+// router.beforeEach(function(to1,from1,next) {
+//   if(to1.path=="/Person"){
 
+//   }else if(to1.path="/CpHomepage"){
+
+//   }else if(to1.path="/Messager"){
+
+//   }else if(to1.path="/Teacher"){
+
+//   }else if(to1.path="/Student"){
+
+//   }
+// })
 export default router
