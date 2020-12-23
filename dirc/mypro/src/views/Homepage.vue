@@ -8,7 +8,7 @@
       <div class="Person">个人中心</div>
     </div>
     <p class="text0"></p>
-    <img src="../public/111.png" class="image1" />
+    <img src="@/assets/111.png" class="image1" />
     <p class="title1">好又高学生管理系统</p>
     <span class="text1">规范学生管理</span>
     <span class="text2">|</span>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="box3">
-      <img src="../public/222.jpg" class="image2" />
+      <img src="@/assets/222.jpg" class="image2" />
       <span class="title4">产品亮点</span>
       <div class="box4">
       <img

@@ -16,7 +16,7 @@
                     <button class="btn" @click="change()">修改</button>
                 </div>
             </div>
-            <div class="changemain"  v-if="!flag">
+            <div @click="fm()" class="changemain"  v-if="!flag">
                     <div class="change">
                         <span>用户名：</span><input class="inp" type="text" v-model="arr[0].username"><br>
                         <span>  邮箱：</span><input class="inp" type="text" v-model="arr[0].email"><br>
@@ -68,6 +68,10 @@
             },
             change(){
                 this.flag=false;
+            },
+            fm(){
+                this.flag=true;
+                event.stopImmediatePropagation();
             }
         },
         mounted() {

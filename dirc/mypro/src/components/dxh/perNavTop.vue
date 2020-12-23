@@ -19,7 +19,7 @@
                 .then((res)=>{
                     if(res.data.code===2001){
                         window.localStorage.setItem("code",0)
-                        this.$router.push("Homepage")
+                        this.$router.push("/")
                     }else{
                         alert("网络连接失败")
                     }
