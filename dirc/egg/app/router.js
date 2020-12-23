@@ -12,7 +12,7 @@ module.exports = app => {
   
   router.get("/verif",controller.home.verif);
   router.get("/userinfo",controller.home.userinfo);
-
+  router.get("/clearCookie",controller.home.clearCookie);
   //产品内部的接口
   //管理员页面
   router.get("/MessagerAdd",controller.home.MessagerAdd);

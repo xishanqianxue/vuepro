@@ -1,8 +1,8 @@
 const Service = require('egg').Service;
 let fs = require("fs");
 class MyService extends Service {
-  async UserChange(reg1,reg2){
-    var data = `update user set tel="${reg1.tel}",email="${reg1.email}",text="${reg1.text}" where username="${reg1.username}"`
+  async UserChange(reg1,reg2,reg3){
+    var data = `update user set tel="${reg1.tel}",email="${reg1.email}",text="${reg1.text}",username="${reg1.username}" where id="${reg3}"`
     await this.app.mysql.query(data);
   }
   async has(reg){
@@ -10,10 +10,18 @@ class MyService extends Service {
     var re = await this.app.mysql.query(data);
     return re;
   }
-  async register(reg1,reg2){
-    // console.log(reg2[0].filepath);
-    reg2[0].filepath = "http://192.168.2.125:7001/public/img"+reg2[0].filename;
-    var data = `insert into user (userimg,username,tel,email,grade,birth) values("${reg2[0].filepath}","${reg1.username}","${reg1.tel}","${reg1.email}","${reg1.grade}","${reg1.birth}")`
+  async Login(reg){
+    var data = `select * from user where username="${reg.username}" and pwd="${reg.pwd}"`
+    var re = await this.app.mysql.query(data);
+    return re;
+  }
+  async userinfo(reg){
+    var data = `select * from user where id="${reg}"`
+    var re = await this.app.mysql.query(data);
+    return re;
+  }
+  async register(reg){
+    var data = `insert into user (email,pwd) values("${reg.email}","${reg.pwd}")`
     var re =  await this.app.mysql.query(data);
     return re
   }

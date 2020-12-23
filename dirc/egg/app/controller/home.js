@@ -5,15 +5,16 @@ const svgCaptcha = require("svg-captcha");
 class HomeController extends Controller {
   async UserChange() {
     const ctx = this.ctx
-    console.log(ctx.request.files[0],111);
-    console.log(ctx.request.body,222);
-    await this.service.home.UserChange(ctx.request.body,ctx.request.files)
-    this.ctx.session.UserInfo = {username:ctx.request.body.username,tel:ctx.request.body.tel,email:ctx.request.body.email,text:ctx.request.body.text};
+    await this.service.home.UserChange(ctx.request.body,ctx.request.files,this.ctx.session.uid)
     ctx.body = {code:2001}
   }
   async userinfo(){
-    var userinfo = this.ctx.session.UserInfo
-    this.ctx.body={userinfo: userinfo}
+    var re = await this.service.home.userinfo(this.ctx.session.uid);
+    this.ctx.body={userinfo: re[0]}
+  }
+  async clearCookie(){
+    this.ctx.session.uid=null;
+    this.ctx.body = {code:2001}
   }
   async verif() {
     const ctx = this.ctx
@@ -24,17 +25,17 @@ class HomeController extends Controller {
       height: 40,
       bacground: '#cc9966'
   });
-    this.ctx.session.code = captcha.text;//缓存验证码中的文字
+    this.ctx.session.code = captcha.text.toUpperCase();//缓存验证码中的文字
     ctx.body =captcha;//返回验证码
   }
   async Login() {
     const ctx = this.ctx
-    if(ctx.request.body.verif!==ctx.session.code){
+    if(ctx.request.body.verif.toUpperCase()!==ctx.session.code){
       ctx.body={code:4001}
     }else{
       var re = await this.service.home.Login(ctx.request.body)
       if(re[0]){
-        this.session.userinfo = ctx.request.body;
+        this.ctx.session.uid=re[0].id;
         ctx.body = {code:2001}
       }else if(!re[0]){
         ctx.body={code:4003}
@@ -43,13 +44,18 @@ class HomeController extends Controller {
   }
   async Register() {
     const ctx = this.ctx
-    var re = await this.service.home.has(ctx.request.body);
-    if(re[0]){
-      ctx.body = {code:4001}
+    if(ctx.request.body.verif.toUpperCase()!==ctx.session.code){
+      ctx.body = {code:4001};
     }else{
-      var re = await this.service.home.register(ctx.request.body,ctx.request.files);
-      ctx.body = {code:2001}
+      var re = await this.service.home.has(ctx.request.body);
+      if(re[0]){
+        ctx.body = {code:4003}
+      }else{
+        var re = await this.service.home.register(ctx.request.body);
+        ctx.body = {code:2001}
+      }
     }
+    
   }
   async MessagerAdd() {
     const ctx = this.ctx;

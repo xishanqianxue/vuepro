@@ -1,28 +1,33 @@
 <template>
-    <div class="box">
-        <a href="#" class="right">
-        <img src="@/assets/04.png" class="personimg">
-        </a>
-        <div class="main">
-            <p>用户名：{{this.$store.state.arr[0].username}}</p>
-            <p>邮箱：{{this.$store.state.arr[0].email}}</p>
-            <p>电话：{{this.$store.state.arr[0].tel}}</p>
-            <div class="info">个人描述：
-                <div class="text">{{this.$store.state.arr[0].text}}</div>
+    <div class="body">
+        <div class="box">
+                <a href="#" class="right">
+                <img src="@/assets/04.png" class="personimg">
+                </a>
+                <div class="main">
+                    <p>用户名：{{arr[0].username}}</p>
+                    <p>邮箱：{{arr[0].email}}</p>
+                    <p>电话：{{arr[0].tel}}</p>
+                    <div class="info">个人描述：
+                        <div class="text">{{arr[0].text}}</div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button class="btn" @click="change()">修改</button>
+                </div>
             </div>
-        </div>
-        <div class="btns">
-            <button class="btn" @click="change()">修改</button>
-        </div>
-        <div class="change" v-if="!flag">
-            用户名：<input type="text" v-model="this.$store.state.arr[0].username"><br>
-            邮箱：<input type="text" v-model="this.$store.state.arr[0].email"><br>
-            电话：<input type="text" v-model="this.$store.state.arr[0].tel"><br>
-            个人描述：<input type="text" v-model="this.$store.state.arr[0].text"><br>
-            选择照片：<input type="file" ref="myimg"><br>
-            <button @click="fn()">打印一下文件</button>
-        </div>
+            <div class="changemain"  v-if="!flag">
+                    <div class="change">
+                        <span>用户名：</span><input class="inp" type="text" v-model="arr[0].username"><br>
+                        <span>  邮箱：</span><input class="inp" type="text" v-model="arr[0].email"><br>
+                        <span>  电话：</span><input class="inp" type="text" v-model="arr[0].tel"><br>
+                        <span>个人描述：</span><input class="inp" type="text" v-model="arr[0].text"><br>
+                        <input class="inp" type="file" ref="myimg"><br>
+                        <button class="btn" @click="fn()">提交</button>
+                    </div>
+                </div>
     </div>
+    
 </template>
 
 <script>
@@ -47,10 +52,10 @@
                 console.log(this.$refs.myimg.files[0]);
                 var img = this.$refs.myimg.files[0]
                 var formdata = new FormData();
-                formdata.append("username",this.$store.state.arr[0].username);
-                formdata.append("email",this.$store.state.arr[0].email);
-                formdata.append("tel",this.$store.state.arr[0].tel);
-                formdata.append("text",this.$store.state.arr[0].text);
+                formdata.append("username",this.arr[0].username);
+                formdata.append("email",this.arr[0].email);
+                formdata.append("tel",this.arr[0].tel);
+                formdata.append("text",this.arr[0].text);
                 formdata.append("img",img)
 
                 await this.$axios.post("/UserChange",formdata)
@@ -68,11 +73,10 @@
         mounted() {
             this.$axios("/userinfo")
             .then((res)=>{
-                console.log(res);
-                this.$store.state.arr[0].username = res.data.userinfo.username;
-                this.$store.state.arr[0].email = res.data.userinfo.email;
-                this.$store.state.arr[0].tel = res.data.userinfo.tel;
-                this.$store.state.arr[0].text = res.data.userinfo.text;
+                this.arr[0].username = res.data.userinfo.username;
+                this.arr[0].email = res.data.userinfo.email;
+                this.arr[0].tel = res.data.userinfo.tel;
+                this.arr[0].text = res.data.userinfo.text;
             })
         },
     }
@@ -84,7 +88,7 @@
         left: 50%;
         transform: translate(-50%,0);
         width: 70%;
-        height: 60vh;
+        height: 65vh;
         border: 1px solid black;
         border-top: none;
         // background-color: rgb(230, 219, 205);
@@ -129,16 +133,39 @@
         width: 80px;
         height: 50px;
         margin: 0 10px;
-        // border-radius: 6px;
         cursor: pointer;
     }
-    .change{
+    .changemain{
         position: fixed;
-        left: 30%;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,.5);
+    }
+    .change{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
         top: 100px;
         width: 300px;
-        height: 430px;
+        height: 330px;
+        padding: 10px 0 0 30px;
+        box-sizing: border-box;
         border: 1px solid black;
+        border-radius: 5px;
         background-color: white;
+        background-image: url("http://192.168.2.125:7001/public/img/02.jpg");
+        .btn{
+            position: absolute;
+            bottom: 15px;
+            width: 70px;
+            height: 30px;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+    }
+    .inp{
+        margin: 15px 0;
     }
 </style>

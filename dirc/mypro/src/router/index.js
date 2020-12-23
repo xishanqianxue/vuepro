@@ -16,27 +16,29 @@ const routes = [
   },
   {
     path:'/Login',
-    components:()=>import('@/views/Login.vue')
+    component:()=>import('@/views/Login.vue'),
+    children:[{path:"",component:()=>import('@/views/Login/register.vue')},
+    {path:"login",component:()=>import('@/views/Login/login.vue')}]
   },
   {
     path:'/Chanpin',
-    components:()=>import('@/views/Chanpin.vue')
+    component:()=>import('@/views/Chanpin.vue')
   },
   {
     path:'/CpHomepage',
-    components:()=>import('@/views/CpHomepage.vue')
+    component:()=>import('@/views/CpHomepage.vue')
   },
   {
     path:'/Messager',
-    components:()=>import('@/views/Messager.vue')
+    component:()=>import('@/views/Messager.vue')
   },
   {
     path:'/Teacher',
-    components:()=>import('@/views/Teacher.vue')
+    component:()=>import('@/views/Teacher.vue')
   },
   {
     path:'/Student',
-    components:()=>import('@/views/Student.vue')
+    component:()=>import('@/views/Student.vue')
   }
 ]
 
@@ -45,17 +47,42 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-// router.beforeEach(function(to1,from1,next) {
-//   if(to1.path=="/Person"){
-
-//   }else if(to1.path="/CpHomepage"){
-
-//   }else if(to1.path="/Messager"){
-
-//   }else if(to1.path="/Teacher"){
-
-//   }else if(to1.path="/Student"){
-
-//   }
-// })
+router.beforeEach(function(to1,from1,next) {
+  if(to1.path==="/Person"){
+    // console.log(window.localStorage.getItem("code"));
+    var a = window.localStorage.getItem("code");
+    if(a==1){
+      next();
+    }else{
+      next("/Login/login")
+    }
+  }
+  else if(to1.path==="/CpHomepage"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Messager"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Teacher"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Student"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else{
+    next();
+  }
+})
 export default router

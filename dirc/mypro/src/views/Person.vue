@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import NavTop from '@/components/dxh/NavTop.vue'
-import Main from '@/components/dxh/Main.vue'
+import NavTop from '@/components/dxh/perNavTop.vue'
+import Main from '@/components/dxh/perMain.vue'
   export default {
     components:{
       NavTop,

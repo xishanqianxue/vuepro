@@ -15,8 +15,15 @@
         methods: {
             logindown(){
                 this.$store.commit('logindown',{username:"",email:"",tel:"",text:"",img:"",sex:""})
-                console.log(window.cookie);
-                this.$router.push("Homepage")
+                this.$axios('/clearCookie')
+                .then((res)=>{
+                    if(res.data.code===2001){
+                        window.localStorage.setItem("code",0)
+                        this.$router.push("Homepage")
+                    }else{
+                        alert("网络连接失败")
+                    }
+                })
             }
         },
     }
