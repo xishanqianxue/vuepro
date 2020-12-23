@@ -37,7 +37,31 @@ const routes = [
   {
     path:'/Student',
     components:()=>import('@/views/Student.vue')
-  }
+  },
+   { path:'/Fuwu',
+  component:()=>import('@/views/Fuwu.vue')
+},
+{ path:'/Yinsi',
+component:()=>import('@/views/Yinsi.vue')
+},
+{ path:'/Know',
+component:()=>import('@/views/Know.vue')
+},
+{ path:'/Join',
+component:()=>import('@/views/Join.vue')
+},
+{ path:'/Lianxi',
+component:()=>import('@/views/Lianxi.vue')
+},
+{ path:'/Zhihui',
+component:()=>import('@/views/Zhihui.vue')
+},
+{ path:'/Need',
+component:()=>import('@/views/Need.vue')
+},
+{ path:'/Advice',
+component:()=>import('@/views/Advice.vue')
+},
 ]
 
 const router = new VueRouter({
