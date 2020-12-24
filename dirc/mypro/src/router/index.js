@@ -71,6 +71,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+// router.beforeEach(function(to1,from1,next) {
+//   if(to1.path=="/Person"){
+
+//   }else if(to1.path="/CpHomepage"){
+
+//   }else if(to1.path="/Messager"){
+
+//   }else if(to1.path="/Teacher"){
+
+//   }else if(to1.path="/Student"){
+
+//   }
 router.beforeEach(function(to1,from1,next) {
   if(to1.path==="/Person"){
     // console.log(window.localStorage.getItem("code"));
@@ -109,4 +121,5 @@ router.beforeEach(function(to1,from1,next) {
     next();
   }
 })
+// })
 export default router

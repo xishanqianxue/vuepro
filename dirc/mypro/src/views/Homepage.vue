@@ -221,8 +221,8 @@ export default {
   },
   components: {},
   methods: {
-    fn() {
-      this.$router.push("/Login");
+    // fn() {
+    //   this.$router.push("/Login");
     },
     fn1() {
       this.$router.push("/Fuwu");
@@ -258,8 +258,8 @@ export default {
      fn999(){
        this.$router.push("/Advice");
      }
-  },
-};
+  }
+
 </script>
 
 <style>
