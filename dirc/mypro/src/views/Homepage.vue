@@ -218,8 +218,8 @@ export default {
   },
   components: {},
   methods: {
-    fn() {
-      this.$router.push("/Login");
+    // fn() {
+    //   this.$router.push("/Login");
     },
     fn1() {
       this.$router.push("/Fuwu");
