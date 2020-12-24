@@ -16,52 +16,62 @@
 CREATE DATABASE IF NOT EXISTS `vuepro` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `vuepro`;
 
--- 导出  表 vuepro.cp1-messager 结构
-CREATE TABLE IF NOT EXISTS `cp1-messager` (
+-- 导出  表 vuepro.cp1messager 结构
+CREATE TABLE IF NOT EXISTS `cp1messager` (
   `id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `pwd` varchar(50) DEFAULT NULL,
+  `uid` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='产品1的管理员列表';
 
--- 正在导出表  vuepro.cp1-messager 的数据：0 rows
-/*!40000 ALTER TABLE `cp1-messager` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cp1-messager` ENABLE KEYS */;
+-- 正在导出表  vuepro.cp1messager 的数据：1 rows
+/*!40000 ALTER TABLE `cp1messager` DISABLE KEYS */;
+INSERT INTO `cp1messager` (`id`, `username`, `pwd`, `uid`) VALUES
+	(0, 'dxh', '123456', 'dxh');
+/*!40000 ALTER TABLE `cp1messager` ENABLE KEYS */;
 
--- 导出  表 vuepro.cp1-student 结构
-CREATE TABLE IF NOT EXISTS `cp1-student` (
+-- 导出  表 vuepro.cp1student 结构
+CREATE TABLE IF NOT EXISTS `cp1student` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `uid` varchar(50) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `img` varchar(500) DEFAULT NULL,
+  `pwd` varchar(500) DEFAULT NULL,
   `class` varchar(500) DEFAULT NULL,
   `grade` varchar(500) DEFAULT NULL,
   `sex` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='产品1的学生基本信息表';
 
--- 正在导出表  vuepro.cp1-student 的数据：0 rows
-/*!40000 ALTER TABLE `cp1-student` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cp1-student` ENABLE KEYS */;
+-- 正在导出表  vuepro.cp1student 的数据：1 rows
+/*!40000 ALTER TABLE `cp1student` DISABLE KEYS */;
+INSERT INTO `cp1student` (`id`, `name`, `uid`, `age`, `img`, `pwd`, `class`, `grade`, `sex`) VALUES
+	(0, '马云', '2333', 35, NULL, '666', '9', '2016', '男');
+/*!40000 ALTER TABLE `cp1student` ENABLE KEYS */;
 
--- 导出  表 vuepro.cp1-teacher 结构
-CREATE TABLE IF NOT EXISTS `cp1-teacher` (
+-- 导出  表 vuepro.cp1teacher 结构
+CREATE TABLE IF NOT EXISTS `cp1teacher` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `img` varchar(500) DEFAULT NULL,
   `zhicheng` varchar(500) DEFAULT NULL,
   `sex` varchar(500) DEFAULT NULL,
+  `uid` varchar(50) DEFAULT NULL,
+  `pwd` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='产品1的教师表';
 
--- 正在导出表  vuepro.cp1-teacher 的数据：0 rows
-/*!40000 ALTER TABLE `cp1-teacher` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cp1-teacher` ENABLE KEYS */;
+-- 正在导出表  vuepro.cp1teacher 的数据：1 rows
+/*!40000 ALTER TABLE `cp1teacher` DISABLE KEYS */;
+INSERT INTO `cp1teacher` (`id`, `name`, `age`, `img`, `zhicheng`, `sex`, `uid`, `pwd`) VALUES
+	(0, 'marry', 25, NULL, '助教', '女', 'mar123', '123456');
+/*!40000 ALTER TABLE `cp1teacher` ENABLE KEYS */;
 
--- 导出  表 vuepro.cp1-testdef 结构
-CREATE TABLE IF NOT EXISTS `cp1-testdef` (
+-- 导出  表 vuepro.cp1testdef 结构
+CREATE TABLE IF NOT EXISTS `cp1testdef` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `class` varchar(50) DEFAULT NULL,
@@ -70,9 +80,9 @@ CREATE TABLE IF NOT EXISTS `cp1-testdef` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='产品1的默认拥有的考试信息表';
 
--- 正在导出表  vuepro.cp1-testdef 的数据：0 rows
-/*!40000 ALTER TABLE `cp1-testdef` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cp1-testdef` ENABLE KEYS */;
+-- 正在导出表  vuepro.cp1testdef 的数据：0 rows
+/*!40000 ALTER TABLE `cp1testdef` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cp1testdef` ENABLE KEYS */;
 
 -- 导出  表 vuepro.goods 结构
 CREATE TABLE IF NOT EXISTS `goods` (

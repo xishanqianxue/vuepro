@@ -25,5 +25,20 @@ class MyService extends Service {
     var re =  await this.app.mysql.query(data);
     return re
   }
+  async hasStudent(reg){
+    var data = `select * from cp1student where uid="${reg.uid}" and pwd="${reg.pwd}"`
+    var re =  await this.app.mysql.query(data);
+    return re
+  }
+  async hasTeacher(reg){
+    var data = `select * from cp1teacher where uid="${reg.uid}" and pwd="${reg.pwd}"`
+    var re =  await this.app.mysql.query(data);
+    return re
+  }
+  async hasMessager(reg){
+    var data = `select * from cp1messager where uid="${reg.uid}" and pwd="${reg.pwd}"`
+    var re =  await this.app.mysql.query(data);
+    return re
+  }
 }
 module.exports = MyService;

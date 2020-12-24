@@ -115,10 +115,11 @@ class HomeController extends Controller {
     if(ctx.request.body.verif!==ctx.session.code){
       ctx.body={code:4001}
     }else{
+      console.log(ctx.request.body);
       var re = await this.service.home.hasStudent(ctx.request.body);
       if(re[0]){
-        var re = await this.service.home.StudentLog(ctx.request.body)
-        ctx.body = {code:2001,userinfo:re}
+        this.ctx.session.student=re[0].id;
+        ctx.body = {code:2001}
       }else if(!re[0]){
         ctx.body={code:4003}
       }
@@ -131,8 +132,8 @@ class HomeController extends Controller {
     }else{
       var re = await this.service.home.hasTeacher(ctx.request.body);
       if(re[0]){
-        var re = await this.service.home.TeacherLog(ctx.request.body)
-        ctx.body = {code:2001,userinfo:re}
+        this.ctx.session.teacher=re[0].id;
+        ctx.body = {code:2001}
       }else if(!re[0]){
         ctx.body={code:4003}
       }
@@ -145,8 +146,8 @@ class HomeController extends Controller {
     }else{
       var re = await this.service.home.hasMessager(ctx.request.body);
       if(re[0]){
-        var re = await this.service.home.MessagerLog(ctx.request.body)
-        ctx.body = {code:2001,userinfo:re}
+        this.ctx.session.messager=re[0].id;
+        ctx.body = {code:2001}
       }else if(!re[0]){
         ctx.body={code:4003}
       }

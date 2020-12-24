@@ -22,7 +22,10 @@ const routes = [
   },
   {
     path:'/Chanpin',
-    component:()=>import('@/views/Chanpin.vue')
+    component:()=>import('@/views/Chanpin.vue'),
+    children:[{path:"",component:()=>import('@/views/Chanpin/student.vue')},
+    {path:"teacher",component:()=>import('@/views/Chanpin/teacher.vue')},
+    {path:"messager",component:()=>import('@/views/Chanpin/messager.vue')}]
   },
   {
     path:'/CpHomepage',

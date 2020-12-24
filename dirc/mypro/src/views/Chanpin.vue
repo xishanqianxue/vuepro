@@ -3,12 +3,13 @@
         <div class="nav">
             <img src="http://192.168.2.125:7001/public/img/07.png" class="logo"><span class="logotext">一站式大厅</span>
             <div class="topRight">
-                <span class="topright1">登录</span><span class="topr1t">|</span>
-                <span class="topright1">教师登录</span><span class="topr1t">|</span>
-                <span class="topright1">管理员入口</span>
+                <router-link to="/Chanpin" class="topright1">登录</router-link><span class="topr1t">|</span>
+                <router-link to="/Chanpin/teacher" class="topright1">教师登录</router-link><span class="topr1t">|</span>
+                <router-link to="/Chanpin/messager" class="topright1">管理员入口</router-link>
             </div>
         </div>
         <LunBo></LunBo>
+        <router-view></router-view>
     </div>
     
 </template>
@@ -47,5 +48,12 @@ import LunBo from '@/components/dxh/LunBo.vue'
     }
     .topr1t{
         margin: 0 15px;
+    }
+    .topright1{
+        color: black;
+        cursor: pointer;
+    }
+    .topright1:hover{
+        color: #2D68FF;
     }
 </style>
