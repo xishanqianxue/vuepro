@@ -81,5 +81,43 @@ const router = new VueRouter({
 //   }else if(to1.path="/Student"){
 
 //   }
+router.beforeEach(function(to1,from1,next) {
+  if(to1.path==="/Person"){
+    // console.log(window.localStorage.getItem("code"));
+    var a = window.localStorage.getItem("code");
+    if(a==1){
+      next();
+    }else{
+      next("/Login/login")
+    }
+  }
+  else if(to1.path==="/CpHomepage"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Messager"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Teacher"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else if(to1.path==="/Student"){
+    if(window.localStorage.getItem("code")){
+      next();
+    }else{
+      next("/Login")
+    }
+  }else{
+    next();
+  }
+})
 // })
 export default router
