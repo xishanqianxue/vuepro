@@ -38,8 +38,37 @@ const routes = [
   },
   {
     path:'/Student',
+<<<<<<< HEAD
     component:()=>import('@/views/Student.vue')
   }
+=======
+    components:()=>import('@/views/Student.vue')
+  },
+   { path:'/Fuwu',
+  component:()=>import('@/views/Fuwu.vue')
+},
+{ path:'/Yinsi',
+component:()=>import('@/views/Yinsi.vue')
+},
+{ path:'/Know',
+component:()=>import('@/views/Know.vue')
+},
+{ path:'/Join',
+component:()=>import('@/views/Join.vue')
+},
+{ path:'/Lianxi',
+component:()=>import('@/views/Lianxi.vue')
+},
+{ path:'/Zhihui',
+component:()=>import('@/views/Zhihui.vue')
+},
+{ path:'/Need',
+component:()=>import('@/views/Need.vue')
+},
+{ path:'/Advice',
+component:()=>import('@/views/Advice.vue')
+},
+>>>>>>> 7ecb1fc20acc7947737f7820acb1f3800bf095f6
 ]
 
 const router = new VueRouter({
