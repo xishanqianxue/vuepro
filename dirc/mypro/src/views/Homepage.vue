@@ -33,11 +33,10 @@
       <div class="Person">个人中心</div>
     </div>
     <p class="text0"></p>
-<<<<<<< HEAD
-    <img src="@/assets/111.png" class="image1" />
-=======
+
+    
+
     <img src="../../public/111.png" class="image1" />
->>>>>>> 7ecb1fc20acc7947737f7820acb1f3800bf095f6
     <p class="title1">好又高学生管理系统</p>
     <span class="text1">规范学生管理</span>
     <span class="text2">|</span>
@@ -61,11 +60,7 @@
       </div>
     </div>
     <div class="box3">
-<<<<<<< HEAD
-      <img src="@/assets/222.jpg" class="image2" />
-=======
       <img src="../../public/222.jpg" class="image2" />
->>>>>>> 7ecb1fc20acc7947737f7820acb1f3800bf095f6
       <span class="title4">产品亮点</span>
       <div class="box4">
         <img

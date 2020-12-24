@@ -38,11 +38,7 @@ const routes = [
   },
   {
     path:'/Student',
-<<<<<<< HEAD
     component:()=>import('@/views/Student.vue')
-  }
-=======
-    components:()=>import('@/views/Student.vue')
   },
    { path:'/Fuwu',
   component:()=>import('@/views/Fuwu.vue')
@@ -68,7 +64,6 @@ component:()=>import('@/views/Need.vue')
 { path:'/Advice',
 component:()=>import('@/views/Advice.vue')
 },
->>>>>>> 7ecb1fc20acc7947737f7820acb1f3800bf095f6
 ]
 
 const router = new VueRouter({
