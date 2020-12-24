@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Nav1 from '@/Nav1.vue'
+import Nav1 from '@/components/zth/Nav1.vue'
   export default {
       components:{
         Nav1

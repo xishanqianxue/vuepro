@@ -41,7 +41,21 @@ const routes = [
   },
   {
     path:'/Student',
-    component:()=>import('@/views/Student.vue')
+    component:()=>import('@/views/Student.vue'),
+    children:[{
+      path:"/grades",
+      component:()=>import('@/views/Student/Grades.vue')
+    }
+    ,{
+      path:'/test',
+      component:()=>import('@/views/Student/Test.vue')
+    },{
+      path:'/timetable',
+      component:()=>import('@/views/Student/Timetable.vue')
+    },{
+      path:'/news',
+      component:()=>import('@/views/Student/News.vue')
+    }]
   },
    { path:'/Fuwu',
   component:()=>import('@/views/Fuwu.vue')

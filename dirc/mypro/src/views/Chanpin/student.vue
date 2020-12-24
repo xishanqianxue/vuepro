@@ -26,7 +26,6 @@
             stulog(){
                 this.$axios.post('/StudentLog',{uid:this.arr[0].uid,pwd:this.arr[0].pwd,verif:this.arr[0].verif.toUpperCase()})
                 .then((res)=>{
-                    console.log(res);
                     if(res.data.code===4001){
                         alert("验证码错误")
                     }

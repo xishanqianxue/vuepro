@@ -115,7 +115,6 @@ class HomeController extends Controller {
     if(ctx.request.body.verif!==ctx.session.code){
       ctx.body={code:4001}
     }else{
-      console.log(ctx.request.body);
       var re = await this.service.home.hasStudent(ctx.request.body);
       if(re[0]){
         this.ctx.session.student=re[0].id;
