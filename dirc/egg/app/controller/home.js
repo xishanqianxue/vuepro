@@ -2,7 +2,15 @@
 
 const Controller = require('egg').Controller;
 const svgCaptcha = require("svg-captcha");
+const fs = require('fs');
 class HomeController extends Controller {
+  async all(){
+    var re = await fs.readFileSync(__dirname+"/public/index.html")
+    this.ctx.set({
+      'Content-Type':'text/html'
+    })
+    this.ctx.body = re;
+  }
   async UserChange() {
     const ctx = this.ctx
     await this.service.home.UserChange(ctx.request.body,ctx.request.files,this.ctx.session.uid)

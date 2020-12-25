@@ -5,6 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
+  router.get("/*",controller.home.all);
   // 网站的接口
   router.post("/UserChange",controller.home.UserChange);
   router.post("/Login",controller.home.Login);

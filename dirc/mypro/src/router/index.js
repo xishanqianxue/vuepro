@@ -81,6 +81,10 @@ component:()=>import('@/views/Need.vue')
 { path:'/Advice',
 component:()=>import('@/views/Advice.vue')
 },
+{
+  path:'/*',
+  component:()=>import('@/views/Homepage.vue')
+}
 ]
 
 const router = new VueRouter({
