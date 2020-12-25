@@ -11,38 +11,36 @@
           <el-dropdown-item>高端产品</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <p class="lkk">  <el-dropdown>
-        <span class="el-dropdown-link">
-          协同研究<i class="el-icon-arrow-down  el-icon--right"></i>
-        </span>
-       <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>企业信息化咨询</el-dropdown-item>
-          <el-dropdown-item>数字化管理运营</el-dropdown-item>
-          <el-dropdown-item>电子政务信息化</el-dropdown-item>
-
-        </el-dropdown-menu>
-      </el-dropdown> </p>
+      <p class="lkk">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            协同研究<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>企业信息化咨询</el-dropdown-item>
+            <el-dropdown-item>数字化管理运营</el-dropdown-item>
+            <el-dropdown-item>电子政务信息化</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </p>
       <p class="zhihui1" @click="fn9">智慧应用中心</p>
       <p class="need1" @click="fn99">需求调研</p>
-      <p class="advice1" @click="fn999"> 投诉建议</p>
+      <p class="advice1" @click="fn999">投诉建议</p>
 
-
-      <div class="login">登录</div>
+      <div class="login" @click="fk">登录</div>
       <span class="gang">|</span>
-      <div class="register">注册</div>
-      <div class="Person">个人中心</div>
+      <div class="register" @click="fk2">注册</div>
+      <div class="Person" @click="per">个人中心</div>
     </div>
     <p class="text0"></p>
-
-    
 
     <img src="../../public/111.png" class="image1" />
     <p class="title1">好又高学生管理系统</p>
     <span class="text1">规范学生管理</span>
     <span class="text2">|</span>
     <span class="text3">提高办公效率</span>
-    <div class="text4" @click="fn()">立即体验</div>
-    <div class="text5">我再逛逛</div>
+    <div class="text4" @click="fnu">立即体验</div>
+    <div class="text5" @click="fnhh">我再逛逛</div>
     <div class="box2">
       <p class="text6">我们的核心功能</p>
       <div class="box1" v-for="(el, index999) in arr" :key="index999">
@@ -127,7 +125,7 @@
     >
 
     <img
-      src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftm-image.qichacha.com%2F46c1d417e5e2c4a184840884763b706f.jpg&refer=http%3A%2F%2Ftm-image.qichacha.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1611222676&t=e5dbd06d239c59e75bbaf5d4993e9bc9"
+      src="../../public/3333.jpg"
       class="tubiao"
     />
     <p class="gongsi">©2020 四川好又高科技有限公司</p>
@@ -145,7 +143,7 @@
     <p class="phone">+87 4108-789-135</p>
     <p class="email">943563944@qq.com</p>
     <img
-      src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftm-image.qichacha.com%2F46c1d417e5e2c4a184840884763b706f.jpg&refer=http%3A%2F%2Ftm-image.qichacha.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1611222676&t=e5dbd06d239c59e75bbaf5d4993e9bc9"
+      src="../../public/3333.jpg"
       class="tubiao2"
     />
 
@@ -223,43 +221,58 @@ export default {
   methods: {
     // fn() {
     //   this.$router.push("/Login");
-    },
-    fn1() {
-      this.$router.push("/Fuwu");
-    },
+ 
+  fn1() {
+    this.$router.push("/Fuwu");
+  },
 
-    fn2() {
-      this.$router.push("/Yinsi");
-    },
-    fn4() {
-      this.$router.push("/Know");
-    },
-    fn5() {
-      this.$router.push("/Join");
-    },
-    fn6() {
-      this.$router.push("/Lianxi");
-    },
-    open1() {
-      const h = this.$createElement;
+  fn2() {
+    this.$router.push("/Yinsi");
+  },
+  fn4() {
+    this.$router.push("/Know");
+  },
+  fn5() {
+    this.$router.push("/Join");
+  },
+  fn6() {
+    this.$router.push("/Lianxi");
+  },
+  open1() {
+    const h = this.$createElement;
 
-      this.$notify({
-        title: "好又高大礼包来袭",
-        message: h("i", { style: "color: teal" }, "点击抢购好又高大礼包"),
-        duration: 1500,
-      });
-    },
-     fn9(){
-         this.$router.push("/Zhihui");
-     },
-     fn99(){
-       this.$router.push("/Need");
-     },
-     fn999(){
-       this.$router.push("/Advice");
-     }
+    this.$notify({
+      title: "好又高大礼包来袭",
+      message: h("i", { style: "color: teal" }, "点击抢购好又高大礼包"),
+      duration: 1500,
+    });
+  },
+  fn9() {
+    this.$router.push("/Zhihui");
+  },
+  fn99() {
+    this.$router.push("/Need");
+  },
+  fn999() {
+    this.$router.push("/Advice");
+  },
+  fk() {
+    this.$router.push("/Login");
+  },
+  fk2() {
+    this.$router.push("/Login");
+  },
+  fnu(){
+    this.$router.push("/Login");
+  },
+  fnhh(){
+    this.$router.push("/Login");
+  },
+  per(){
+    this.$router.push("/Person")
   }
-
+  }
+};
 </script>
 
 <style scoped>
@@ -286,7 +299,7 @@ export default {
   font-size: 14px;
 }
 .Person {
- position: relative;
+  position: relative;
   left: -45px;
   font-size: 14px;
 }
@@ -604,7 +617,7 @@ export default {
   color: grey;
   position: relative;
   left: -267px;
-bottom: 240px;
+  bottom: 240px;
   font-size: 20px;
 }
 .sentence4 {
@@ -807,7 +820,7 @@ bottom: 240px;
 
 .homepage1 {
   position: relative;
- left: -810px;
+  left: -810px;
   border-bottom: red 1px solid;
   font-size: 14px;
 }
@@ -817,13 +830,12 @@ bottom: 240px;
   cursor: pointer;
 }
 .el-dropdown-link {
-   cursor: pointer;
-    color:red;
- 
+  cursor: pointer;
+  color: red;
 }
 .el-dropdown {
-    position: relative;
-    left: -612px;
+  position: relative;
+  left: -612px;
 }
 
 .el-icon-arrow-down {
@@ -832,15 +844,14 @@ bottom: 240px;
 .gang {
   font-size: 14px;
   position: relative;
- left: -95px;}
+  left: -95px;
+}
 
 .el-dropdown-link {
-   cursor: pointer;
-    
- 
+  cursor: pointer;
 }
 .el-dropdown {
-    /* position: relative;
+  /* position: relative;
      left: -730px; */
 }
 
@@ -848,54 +859,42 @@ bottom: 240px;
   font-size: 14px;
 }
 .lkk {
-    margin-left: -200px;
-
+  margin-left: -200px;
 }
 .zhihui1 {
-    position: relative;
-     
-     color: blue;
-    left: -435px;
-     font-size: 14px;
-     cursor: pointer;
+  position: relative;
+
+  color: blue;
+  left: -435px;
+  font-size: 14px;
+  cursor: pointer;
 }
 .need1 {
-   position: relative;
-     color: blue;
-     left: -363px;
-     font-size: 14px;
-     cursor: pointer;
+  position: relative;
+  color: blue;
+  left: -363px;
+  font-size: 14px;
+  cursor: pointer;
 }
 .advice1 {
-position: relative;
-     color: blue;
-     left: -289px;
-     font-size: 14px;
-     cursor: pointer;
+  position: relative;
+  color: blue;
+  left: -289px;
+  font-size: 14px;
+  cursor: pointer;
 }
 .zhihui1:hover {
-    background: grey;
-    cursor: pointer;
+  background: grey;
+  cursor: pointer;
 }
 .need1:hover {
   background: grey;
   cursor: pointer;
 }
-.advice1:hover{
+.advice1:hover {
   background: grey;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 
